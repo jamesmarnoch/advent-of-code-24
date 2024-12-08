@@ -86,7 +86,6 @@ fn main() {
                 let mut x = nodes.iter().map(|x| x.to_string()).collect::<Vec<String>>();
                 x.reverse();
                 fixed_update_centre_page_sum += get_centre_page(&x);
-                let fixed = is_update_good(&x, &rules);
             },
             _ => {}
         };
