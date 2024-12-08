@@ -27,10 +27,10 @@ fn main() {
         Array2::from_shape_vec((row_count as usize, column_count as usize), vec_chars).unwrap();
 
     find_xmas(row_count, column_count, &xmas_puzzle);
-    find_x_mas(column_count, &xmas_puzzle);
+    find_x_mas(row_count, column_count, &xmas_puzzle);
 }
 
-fn find_x_mas(column_count: i32, puzzle: &Array2<char>) {
+fn find_x_mas(row_count: i32, column_count: i32, puzzle: &Array2<char>) {
     let re_x_mas = Regex::new(r"(M.S.A.M.S)|(S.S.A.M.M)|(S.M.A.S.M)|(M.M.A.S.S)").unwrap();
     // re_x_mas.push(Regex::new(r"M.S.A.M.S").unwrap());
     // re_x_mas.push(Regex::new(r"S.S.A.M.M").unwrap());
@@ -41,7 +41,7 @@ fn find_x_mas(column_count: i32, puzzle: &Array2<char>) {
 
     let range_rows = Range {
         start: 0,
-        end: column_count - square_size + 1,
+        end: row_count - square_size + 1,
     };
     let range_cols = Range {
         start: 0,
